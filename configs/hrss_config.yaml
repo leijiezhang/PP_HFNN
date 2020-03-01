@@ -1,0 +1,56 @@
+model: 'hdfnn_ao' # 'base' 'hdfnn' 'hdfnn_fn' 'hdfnn_ao' 'hdfnn_dnn'
+
+n_run: 1
+n_kfolds: 5
+
+n_agents: 5
+n_agents_list: []
+
+n_rules: 5
+n_rules_list: []
+n_hidden_output: 2
+
+dataset_name: 'hrss' # each kind of dataset has a same prefix name, dataset is the prefix
+dataset_list:
+  ['HRSS_anomalous_optimized']
+dataset_list_all:
+  ['abalone', 'airfoil', 'bikesharing',
+   'blog', 'bodyfat', 'CASP', 'CCPP', 'eegDual_sub1',
+   'housing', 'HRSS_anomalous_optimized', 'HRSS_anomalous_standard',
+   'kc_house', 'motor_temperature', 'quake', 'skills',
+   'statlib_calhousing', 'strength', 'telemonitoring', 'yacht']
+
+mu_current: 0.01
+mu_list:
+  [0.0001, 0.001, 0.01, 0.1]
+mu1_current: 0.01
+mu1_list:
+  [0.0001, 0.001, 0.01, 0.1]
+rho: 0.1
+
+#tool functions
+h_computer: 'normal' # 'base' 'normal'
+fnn_solver: 'normal' # 'base' 'normal' 'sigmoid'
+loss_fun: 'likely'  # 'base' 'rmse' 'nrmse' 'mse' 'map' 'likely'
+rules: 'kmeans' # 'kmeans' 'fuzzyc'
+patition_strategy: 'kmeans'
+
+#feature splitor
+feature_seperator: 'slice_window' # 'stride_window' 'slice_window' 'random_pick' 'no_seperate'
+window_size: 3
+n_level: 2
+# while using stride_window, initiate following parameters
+stride_len: 6 #6 channel
+# while feature_seperator is slice_window, initiate following parameters
+step: 3
+# while feature_seperator is random_pick, initiate following parameters
+n_repeat_select: 30
+
+# rule number tree
+tree_rule_spesify: 'true' # 'false' 'true'
+n_rule_pos: [2, 0] # 0 stands for all, number(1...5) denotes for index
+n_rule_spesify: 1
+
+
+#logger
+log_to_file: 'false' # 'false' 'true'
