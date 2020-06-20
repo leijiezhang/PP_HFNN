@@ -253,6 +253,7 @@ class FnnAO(NetBase):
         para_mu1 = kwargs['para_mu1']
 
         fea_seperator = seperator.get_seperator()
+        seperator.generate_n_rule_tree(kwargs['n_rules'])
         n_rules_tree = seperator.get_n_rule_tree()
         neuron_seed = self.get_neuron_seed()
 
